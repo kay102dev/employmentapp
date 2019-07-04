@@ -33,9 +33,9 @@ npm run e2e
 
 
 
-## Run BDD Tests
+## Run App in Local machine
 
-Use the following commands in sequence in the application root folder.
+npm start
 
 ```node
 npm run e2e
