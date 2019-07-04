@@ -66,3 +66,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /employeeApp/dist/employeeApp/ /usr/share/nginx/html
 ```
+![Alt text](http://www.greymeta-it.co.za/employeeapp/screens/screen1.PNG  "Optional title")
+![Alt text](http://www.greymeta-it.co.za/employeeapp/screens/screen2.PNG  "Optional title")
+![Alt text](http://www.greymeta-it.co.za/employeeapp/screens/screen3.PNG  "Optional title")
+![Alt text](http://www.greymeta-it.co.za/employeeapp/screens/screen4.PNG  "Optional title")
