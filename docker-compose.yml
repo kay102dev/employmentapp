@@ -1,0 +1,27 @@
+version: '3.5' # We use version 3.5 syntax
+services: # Here we define our service(s)
+  angular-service: # The name of the service
+    container_name: employeeApp  # Container name
+    build: ./ # Location of our Dockerfile
+    volumes: # Volume binding
+      - './angulardockerproject:/usr/src/app'
+    ports:
+      - '3000:3000' # Port mapping
+    command: >
+      bash -c "npm install && ng serve --host 0.0.0.0 --port 3000"
+
+  # Frontend service
+  client:
+    build: ./ # specify the directory of the Dockerfile
+    ports:
+      - "4200:4200" # specify port forewarding
+    links:
+      - api # link this service to the api service
+
+  # API Service
+  api:
+    build: api # specify the directory of the Dockerfile
+    ports:
+      - "5000:5000" #specify ports forwarding
+    links:
+      - database # link this service to the database service

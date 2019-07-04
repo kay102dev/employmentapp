@@ -1,0 +1,96 @@
+<form action="" [formGroup]="employeeForm"  #formDirective="ngForm" (ngSubmit)="saveMemberDetails(formDirective)">
+<div class="container mt-3">
+  <div class="row">
+
+    <div class="col-12 col-md-4">
+
+      <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Employee Card</div>
+        <img src="https://randomuser.me/api/portraits/lego/2.jpg" data-int="2" data-gender="lego" class="profile-pic">
+        <div class="card-body text-primary text-center">
+          <h5 class="card-title">ID Card for :  <strong>{{ personID + 1 }}</strong></h5>
+          <div class="col-lg-12">
+            <!--Employee Number Control Control-->
+            <mat-form-field class="w-100">
+              <input matInput placeholder="Enter Employee Number" formControlName="employeeNumberFormControl" #employeeNumber>
+              <mat-error *ngIf="getControls.employeeNumberFormControl.errors">
+                <span *ngIf="getControls.employeeNumberFormControl.errors.required">Employee Number <strong>required</strong></span>
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-8">
+      <h6 class="display-4">Human resource management system</h6>
+      <p class="lead">A simple employee management application for capturing and managing employees</p>
+      <hr class="my-4">
+    </div>
+
+  </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+
+      <div class="col-lg-3">
+        <!--First Name Control-->
+        <mat-form-field class="w-100">
+          <input matInput placeholder="First Name" formControlName="firstNameFormControl" #name>
+          <mat-hint  *ngIf="!getControls.firstNameFormControl.touched">Type in your First Name</mat-hint>
+          <mat-error *ngIf="getControls.firstNameFormControl.errors && !getControls.firstNameFormControl.pristine">
+            <span *ngIf="getControls.firstNameFormControl.errors.pattern">Enter first name with no numbers, spaces or special characters</span>
+          </mat-error>
+          <mat-error *ngIf="getControls.firstNameFormControl.errors">
+            <span *ngIf="getControls.firstNameFormControl.errors.required">First Name is <strong>required</strong></span>
+          </mat-error>
+
+        </mat-form-field>
+
+      </div>
+
+          <div class="col-lg-3">
+            <!--Last Name Control-->
+            <mat-form-field class="w-100">
+              <input matInput  placeholder="Last Name" formControlName="lastNameFormControl"
+                     value="">
+              <mat-hint  *ngIf="!getControls.lastNameFormControl.touched">Type in your Last Name</mat-hint>
+              <mat-error *ngIf="getControls.lastNameFormControl.errors && !getControls.lastNameFormControl.pristine">
+                <span *ngIf="getControls.lastNameFormControl.errors.pattern">Enter first name with no numbers, spaces or special characters</span>
+              </mat-error>
+              <mat-error *ngIf="getControls.lastNameFormControl.errors">
+                <span *ngIf="getControls.lastNameFormControl.errors.required">Last Name is <strong>required</strong></span>
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+
+          <div class="col-lg-3">
+            <!--Calendar Control-->
+            <mat-form-field class="w-100">
+              <input matInput  formControlName="DOBFormControl" [matDatepicker]="picker" placeholder="Date of Birth"
+                     >
+              <mat-hint  *ngIf="!getControls.DOBFormControl.touched">Select your Date of birth</mat-hint>
+
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker touchUi></mat-datepicker>
+
+              <mat-error *ngIf="getControls.DOBFormControl.errors">
+                <span *ngIf="getControls.DOBFormControl.errors.matDatepickerParse">Please select a valid your date of birth from the calendar icon</span>
+              </mat-error>
+              <mat-error *ngIf="getControls.DOBFormControl.errors">
+                <span *ngIf="getControls.DOBFormControl.errors.required && !getControls.DOBFormControl.errors.matDatepickerParse">Date Of Birth is <strong>required</strong></span>
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+
+      <div class="col-lg-3">
+        <!--Add Employee button-->
+        <button type="button" type="submit" [disabled]="!employeeForm.valid" id="saveButton" class="btn btn-success w-100 add-btn">Add employee</button>
+      </div>
+    </div>
+</div>
+</form>

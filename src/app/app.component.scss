@@ -1,0 +1,80 @@
+$base-color: #fff;
+$dark-grey-color: #444;
+$light-grey-color: #888;
+$app-primary-color: indigo;
+
+
+.btn-outline-primary {
+  border-color: $app-primary-color;
+  color: $app-primary-color;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+  color: #fff;
+  background-color: $app-primary-color;
+  border-color: $app-primary-color;
+}
+
+
+::ng-deep body {
+  background: $base-color;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  button[disabled]{
+    cursor: not-allowed;
+  }
+
+  h6, h4, title {
+    color: $app-primary-color;
+  }
+
+  .personal-id {
+    background: transparent;
+    padding: 20px;
+    text-align: center;
+    border: $light-grey-color solid 1px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: 100;
+    color: $app-primary-color;
+    span {
+      color: $light-grey-color;
+    }
+  }
+  .personal-id-title {
+    color: $dark-grey-color;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  p {
+    color: $light-grey-color;
+  }
+
+  hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  input {
+    color: $dark-grey-color !important;
+  }
+
+  .add-btn {
+    margin-top: 10px;
+  }
+
+  .display-4 {
+    font-size: 2.5em;
+  }
+
+  .table {
+    color: $dark-grey-color;
+    button {
+      //font-size: 12px;
+    }
+  }
+  .cdk-overlay-container {
+    z-index: 10000;
+  }
+}
+

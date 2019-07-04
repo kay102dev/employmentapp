@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://techtestapi.azurewebsites.net",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
